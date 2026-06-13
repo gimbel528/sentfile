@@ -1,0 +1,7 @@
+name = "sentfile"
+main = "worker/src/index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "STORE"
+id = "a56c86a3084f487585d9197e5f616994"
