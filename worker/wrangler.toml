@@ -1,0 +1,14 @@
+name = "send-liuqingyun"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[routes]
+pattern = "send.liuqingyun.top/*"
+zone_name = "liuqingyun.top"
+
+[[kv_namespaces]]
+binding = "STORE"
+id = "你的KV命名空间ID"
+
+[triggers]
+crons = ["0 */6 * * *"]
