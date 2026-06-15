@@ -8,7 +8,7 @@
       <router-view />
     </main>
     <footer class="footer">
-      文件最大 25MB · 自动过期 · 端到端加密传输
+      文件最大 100MB · 自动过期 · 端到端加密传输
     </footer>
   </div>
 </template>
