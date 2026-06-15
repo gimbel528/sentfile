@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import axios from 'axios'
 
 // 全局请求拦截，自动带上 localStorage 保存的访问密码
 const originalFetch = window.fetch
@@ -17,6 +18,18 @@ window.fetch = (url, options = {}) => {
   return originalFetch(url, options)
 }
 
+// axios 请求拦截（同上）
+axios.interceptors.request.use((config) => {
+  const pwd = localStorage.getItem('accessPwd')
+  if (pwd) {
+    config.headers['X-Access-Pwd'] = pwd
+  }
+  return config
+}, (error) => {
+  return Promise.reject(error)
+})
+
 const app = createApp(App)
 app.use(router)
+app.config.globalProperties.$axios = axios
 app.mount('#app')
